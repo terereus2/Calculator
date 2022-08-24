@@ -65,28 +65,28 @@ td {
   <td><button id="seven" onclick="getNumber(7)">7</button></td>
   <td><button id="eight" onclick="getNumber(8)">8</button></td>
   <td><button id="nine" onclick="getNumber(9)">9</button></td>
-  <td><button id="division" onclick="division()">/</button></td>
+  <td><button id="division" onclick="action('/')">/</button></td>
 </tr>
 
 <tr>
   <td><button id="four" onclick="getNumber(4)">4</button></td>
   <td><button id="five" onclick="getNumber(5)">5</button></td>
   <td><button id="six" onclick="getNumber(6)">6</button></td>
-  <td><button id="minus" onclick="minus()" >-</button></td>
+  <td><button id="minus" onclick="action('-')" >-</button></td>
 </tr>
 
 <tr>
   <td><button id="one" onclick="getNumber(1)">1</button></td>
   <td><button id="two" onclick="getNumber(2)">2</button></td>
   <td><button id="three" onclick="getNumber(3)">3</button></td>
-  <td><button id="plus" onclick="plus()">+</button></td>
+  <td><button id="plus" onclick="action('+')">+</button></td>
 </tr>
 
 <tr>
   <td><button id="clear" onclick="del()">С</button></td>
   <td><button class="zero" onclick="getNumber(0)">0</button></td>
   <td><button id="equel" onclick="equel()">=</button></td>
-  <td><button id="multi" onclick="multi()">*</button></td>
+  <td><button id="multi" onclick="action('*')">*</button></td>
 </tr>
 </table>
  
@@ -106,96 +106,30 @@ function getNumber(element){
    console.log(input) 
 }
 
-function plus(){
-let data = document.getElementById('data').value
+function action(operator){
+    let data = document.getElementById('data').value
 if (data==false){                                          // если ничего не введено то после введения '+' ничиего не вводится на экран
 let elem = document.getElementById('plus').value = ''
 let input = document.getElementById('data')
 input.value += ''
-} else if(data[data.length-1] == '+'){                      // если введено например '25+' то после нажатия '+' невыводится еще раз
+} else if(data[data.length-1] == operator){                      // если введено например '25+' то после нажатия '+' невыводится еще раз
    let elem = document.getElementById('plus').value = ''
    let input = document.getElementById('data')
    input.value += ''
    } else if (data){                                       // если введено число то после нажатия '+' выводится после числа '+'
-      let elem = document.getElementById('plus').value = '+'
+      let elem = document.getElementById('plus').value = operator
       let input = document.getElementById('data')
-      input.value += '+'
+      input.value += operator
      }
 if(data == '0'){                                          // ввели 0 и после нажатия '+' выводиться '0+'
-let elem = document.getElementById('plus').value = '+'
+let elem = document.getElementById('plus').value = operator
 let input = document.getElementById('data')
-input.value += '+'
+input.value += operator
 }  
 }
 
 
-function minus(){
-let data = document.getElementById('data').value
-if (data==false){
-let elem = document.getElementById('plus').value = ''
-let input = document.getElementById('data')
-input.value += ''
-} else if(data[data.length-1] == '-'){
-   let elem = document.getElementById('plus').value = ''
-   let input = document.getElementById('data')
-   input.value += ''
-   } else if (data){
-      let elem = document.getElementById('plus').value = '-'
-      let input = document.getElementById('data')
-      input.value += '-'
-    }
-if(data == '0'){
-let elem = document.getElementById('plus').value = '+'
-let input = document.getElementById('data')
-input.value += '-'
-}  
-}
 
-
-function multi(){
-let data = document.getElementById('data').value
-if (data==false){
-let elem = document.getElementById('plus').value = ''
-let input = document.getElementById('data')
-input.value += ''
-} else if(data[data.length-1] == '*'){
-   let elem = document.getElementById('plus').value = ''
-   let input = document.getElementById('data')
-   input.value += ''
-  } else if (data){
-     let elem = document.getElementById('plus').value = '*'
-     let input = document.getElementById('data')
-     input.value += '*'
-    }
-if(data == '0'){
-let elem = document.getElementById('plus').value = '+'
-let input = document.getElementById('data')
-input.value += '*'
-}  
-}
-
-
-function division(){
-let data = document.getElementById('data').value
-if (data==false){
-    let elem = document.getElementById('plus').value = ''
-    let input = document.getElementById('data')
-    input.value += ''
-} else if(data[data.length-1] == '/'){
-   let elem = document.getElementById('plus').value = ''
-   let input = document.getElementById('data')
-   input.value += ''
-   } else if (data){
-      let elem = document.getElementById('plus').value = '/'
-      let input = document.getElementById('data')
-      input.value += '/'
-    }
-if(data == '0'){
-let elem = document.getElementById('plus').value = '+'
-let input = document.getElementById('data')
-input.value += '/'
-}  
-}
 
 
 
