@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content ="text/html; charset=UTF-8";>
+  
+ <title>javascript</title>
+ 
+ <style>
+body{
+  margin-left: 600px;
+}
+table {
+  border-collapse: collapse;
+  border: 0px solid black;
+  background: gray;
+
+}
+
+td {
+    
+    border: 0px solid black; 
+    padding: 2px; 
+    width: 60px;
+    height: 60px;
+   }
+
+   button{
+   padding: 5px;
+   margin-left: 10px;
+   font-size: 25px;
+   width: 40px;
+   background: black;
+   color: white;
+
+   }
+
+   input{
+    padding: 5px;
+    margin-left: 35px;
+    height: 20px;
+    width: 170px;
+    font-size: 30px;
+    text-align: right;
+   }
+
+ </style>
+
+</head>
+
+
+
+
+<body >
+  
+
+
+<table>
+  
+<tr>
+  <td colspan="4"><input id="data"  type = "text" readonly></td>
+  
+</tr>
+
+<tr>
+  <td><button id="seven" onclick="getNumber(7)">7</button></td>
+  <td><button id="eight" onclick="getNumber(8)">8</button></td>
+  <td><button id="nine" onclick="getNumber(9)">9</button></td>
+  <td><button id="division" onclick="division()">/</button></td>
+</tr>
+
+<tr>
+  <td><button id="four" onclick="getNumber(4)">4</button></td>
+  <td><button id="five" onclick="getNumber(5)">5</button></td>
+  <td><button id="six" onclick="getNumber(6)">6</button></td>
+  <td><button id="minus" onclick="minus()" >-</button></td>
+</tr>
+
+<tr>
+  <td><button id="one" onclick="getNumber(1)">1</button></td>
+  <td><button id="two" onclick="getNumber(2)">2</button></td>
+  <td><button id="three" onclick="getNumber(3)">3</button></td>
+  <td><button id="plus" onclick="plus()">+</button></td>
+</tr>
+
+<tr>
+  <td><button id="clear" onclick="del()">С</button></td>
+  <td><button class="zero" onclick="getNumber(0)">0</button></td>
+  <td><button id="equel" onclick="equel()">=</button></td>
+  <td><button id="multi" onclick="multi()">*</button></td>
+</tr>
+</table>
+ 
+
+</body>
+
+<script type="text/javascript" >
+
+function del(){
+    let data = document.getElementById('data').value = ''
+    
+}
+
+function getNumber(element){
+   let input = document.getElementById('data')
+   input.value += element  
+}
+
+function plus(){
+let data = document.getElementById('data').value
+if (data==false){                                          // если ничего не введено то после введения '+' ничиего не вводится на экран
+let elem = document.getElementById('plus').value = ''
+let input = document.getElementById('data')
+input.value += ''
+} else if(data[data.length-1] == '+'){                      // если введено например '25+' то после нажатия '+' невыводится еще раз
+   let elem = document.getElementById('plus').value = ''
+   let input = document.getElementById('data')
+   input.value += ''
+   } else if (data){                                       // если введено число то после нажатия '+' выводится после числа '+'
+      let elem = document.getElementById('plus').value = '+'
+      let input = document.getElementById('data')
+      input.value += '+'
+     }
+if(data == '0'){                                          // ввели 0 и после нажатия '+' выводиться '0+'
+let elem = document.getElementById('plus').value = '+'
+let input = document.getElementById('data')
+input.value += '+'
+}  
+}
+
+
+function minus(){
+let data = document.getElementById('data').value
+if (data==false){
+let elem = document.getElementById('plus').value = ''
+let input = document.getElementById('data')
+input.value += ''
+} else if(data[data.length-1] == '-'){
+   let elem = document.getElementById('plus').value = ''
+   let input = document.getElementById('data')
+   input.value += ''
+   } else if (data){
+      let elem = document.getElementById('plus').value = '-'
+      let input = document.getElementById('data')
+      input.value += '-'
+    }
+if(data == '0'){
+let elem = document.getElementById('plus').value = '+'
+let input = document.getElementById('data')
+input.value += '-'
+}  
+}
+
+
+function multi(){
+let data = document.getElementById('data').value
+if (data==false){
+let elem = document.getElementById('plus').value = ''
+let input = document.getElementById('data')
+input.value += ''
+} else if(data[data.length-1] == '*'){
+   let elem = document.getElementById('plus').value = ''
+   let input = document.getElementById('data')
+   input.value += ''
+  } else if (data){
+     let elem = document.getElementById('plus').value = '*'
+     let input = document.getElementById('data')
+     input.value += '*'
+    }
+if(data == '0'){
+let elem = document.getElementById('plus').value = '+'
+let input = document.getElementById('data')
+input.value += '*'
+}  
+}
+
+
+function division(){
+let data = document.getElementById('data').value
+if (data==false){
+    let elem = document.getElementById('plus').value = ''
+    let input = document.getElementById('data')
+    input.value += ''
+} else if(data[data.length-1] == '/'){
+   let elem = document.getElementById('plus').value = ''
+   let input = document.getElementById('data')
+   input.value += ''
+   } else if (data){
+      let elem = document.getElementById('plus').value = '/'
+      let input = document.getElementById('data')
+      input.value += '/'
+    }
+if(data == '0'){
+let elem = document.getElementById('plus').value = '+'
+let input = document.getElementById('data')
+input.value += '/'
+}  
+}
+
+
+
+function equel(){
+let data = document.getElementById('data').value  
+let operator                                      // ищу в строке один из операторов '+-/*'
+for(i=0; i<data.length; i++){
+        if(isNaN(data[i])){
+        operator = data[i]
+        } 
+}
+let position = data.indexOf(operator)               // нахожу где в строке оператор находится
+let x = Number(data.slice(0,position))              // вырезаю число до оператора
+let y = Number(data.slice(position+1,data.length))  // вырезаю число после операторав
+// результат вычесления произвожу
+if(operator == '+'){
+document.getElementById('data').value = x+y
+} else if(operator == '-'){
+  document.getElementById('data').value = x-y
+  } else if(operator == '*'){
+    document.getElementById('data').value = x*y
+    } else if(operator == '/'){
+      document.getElementById('data').value = x/y
+      } 
+}
+
+   
+
+</script>
+
+
+</html>
