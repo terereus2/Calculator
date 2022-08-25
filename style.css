@@ -1,0 +1,50 @@
+body{
+  margin-left: 600px;
+}
+
+
+table {
+  border-collapse: collapse;
+  border: 0px solid black;
+  border-radius: 16px;
+  background: grey;
+}
+
+
+td {
+    border: 0px solid black; 
+    padding: 2px; 
+    width: 60px;
+    height: 60px;
+   }
+
+
+button{
+   padding: 5px;
+   margin-left: 10px;
+   font-size: 25px;
+   width: 40px;
+   background: black;
+   color: white;
+   border-radius: 12px;
+   }
+
+
+input{
+    padding: 5px;
+    margin-left: 35px;
+    height: 20px;
+    width: 170px;
+    font-size: 30px;
+    text-align: right;
+   }
+
+   
+.casio{
+    text-align: center;
+    color: white;
+    font-size: 25px;
+   height: 25px;
+   font-weight: bold;
+   letter-spacing: 2px;
+}
