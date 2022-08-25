@@ -83,9 +83,9 @@ td {
 </tr>
 
 <tr>
-  <td><button id="clear" onclick="del()">С</button></td>
+  <td><button id="clear" onclick="getClear()">С</button></td>
   <td><button class="zero" onclick="getNumber(0)">0</button></td>
-  <td><button id="equel" onclick="equel()">=</button></td>
+  <td><button id="equel" onclick="getEquals()">=</button></td>
   <td><button id="multi" onclick="action('*')">*</button></td>
 </tr>
 </table>
@@ -95,46 +95,32 @@ td {
 
 <script type="text/javascript" >
 
-function del(){
-    let data = document.getElementById('data').value = ''
-    
+function getClear(){
+const data = document.getElementById('data')
+data.value = ''
 }
 
 function getNumber(element){
-   let input = document.getElementById('data')
-   input.value += element
-   console.log(input) 
+const input = document.getElementById('data')
+   if(input.value == '0'){
+    input.value += ''
+   } else{
+     input.value += element
+     }
 }
 
 function action(operator){
-    let data = document.getElementById('data').value
-if (data==false){                                          // если ничего не введено то после введения '+' ничиего не вводится на экран
-let elem = document.getElementById('plus').value = ''
-let input = document.getElementById('data')
-input.value += ''
-} else if(data[data.length-1] == operator){                      // если введено например '25+' то после нажатия '+' невыводится еще раз
-   let elem = document.getElementById('plus').value = ''
-   let input = document.getElementById('data')
-   input.value += ''
-   } else if (data){                                       // если введено число то после нажатия '+' выводится после числа '+'
-      let elem = document.getElementById('plus').value = operator
+const data = document.getElementById('data').value
+      if (data&&data[data.length-1] != operator){                                       // если введено число то после нажатия '+' выводится после числа '+'
+      let elem = document.getElementById('plus')
+      elem.value = operator
       let input = document.getElementById('data')
       input.value += operator
-     }
-if(data == '0'){                                          // ввели 0 и после нажатия '+' выводиться '0+'
-let elem = document.getElementById('plus').value = operator
-let input = document.getElementById('data')
-input.value += operator
-}  
+      } 
 }
 
-
-
-
-
-
-function equel(){
-let data = document.getElementById('data').value  
+function getEquals(){
+const data = document.getElementById('data').value  
 let operator                                      // ищу в строке один из операторов '+-/*'
 for(i=0; i<data.length; i++){
         if(isNaN(data[i])){
@@ -155,8 +141,6 @@ document.getElementById('data').value = x+y
       document.getElementById('data').value = x/y
       } 
 }
-
-   
 
 </script>
 
