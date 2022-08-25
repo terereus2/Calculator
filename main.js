@@ -43,3 +43,5 @@ document.getElementById('data').value = x+y
       document.getElementById('data').value = x/y
       } 
 }
+
+
